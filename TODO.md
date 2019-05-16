@@ -1,0 +1,54 @@
+classes and interfaces to Learn (\w Spring Boot):
+
+- MultipartResolver:
+  - StandardServletMultipartResolver
+- LocaleResolver:
+  - AcceptHeaderLocaleResolver
+- ThemeResolver:
+  - FixedThemeResolver
+- RequestToViewNameTranslator:
+  - DefaultRequestToViewNameTranslator
+- FlashMapManager:
+  - SessionFlashMapManager
+- HandlerMapping:
+  - SimpleUrlHandlerMapping
+  - RequestMappingHandlerMapping
+  - BeanNameUrlHandlerMapping
+  - SimpleUrlHandlerMapping
+  - WelcomePageHandlerMapping
+- HandlerAdapter:
+  - RequestMappingHandlerAdapter
+  - HttpRequestHandlerAdapter
+  - SimpleControllerHandlerAdapter
+- HandlerExceptionResolver:
+  - DefaultErrorAttributes
+  - HandlerExceptionResolverComposite
+- ViewResolver:
+  - ContentNegotiatingViewResolver
+  - BeanNameViewResolver
+  - ViewResolverComposite
+  - InternalResourceViewResolver
+  
+ 
+defaults (\wo Spring Boot, i guess?): 
+- LocaleResolver:
+  - AcceptHeaderLocaleResolver
+- ThemeResolver:
+  - FixedThemeResolver
+- RequestToViewNameTranslator:
+  - DefaultRequestToViewNameTranslator
+- FlashMapManager:
+  - SessionFlashMapManager
+- HandlerMapping:
+  - BeanNameUrlHandlerMapping
+  - RequestMappingHandlerMapping
+- HandlerAdapter:
+  - HttpRequestHandlerAdapter
+  - SimpleControllerHandlerAdapter
+  - RequestMappingHandlerAdapter
+- HandlerExceptionResolver:
+  - ExceptionHandlerExceptionResolver
+  - ResponseStatusExceptionResolver
+  - DefaultHandlerExceptionResolver
+- ViewResolver:
+  - InternalResourceViewResolver
