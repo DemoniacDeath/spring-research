@@ -27,3 +27,7 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+
+### Frontend ###
+/.node/
+/.node_modules/
