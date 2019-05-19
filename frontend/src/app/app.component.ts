@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {AppService} from "./app.service";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Demo';
-  greeting: {id?: string, content?: string} = {};
-  constructor(private http: HttpClient) {
-    http.get("resource").subscribe(data => {
-      this.greeting.id = data['id'];
-      this.greeting.content = data['content'];
-    });
-  }
+    constructor(private app: AppService, private http: HttpClient, private router: Router) {
+        this.app.authenticate(undefined, undefined);
+    }
+
+    logout() {
+        this.app.logout(() => {
+            this.router.navigateByUrl("/login");
+        });
+    }
 }
