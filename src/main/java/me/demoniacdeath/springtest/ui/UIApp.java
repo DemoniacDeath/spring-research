@@ -9,22 +9,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.util.Collections;
-import java.util.Map;
 
 @SpringBootApplication
 @EnableWebSecurity
 @Controller
 @EnableZuulProxy
-public class App {
+public class UIApp {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(UIApp.class, args);
     }
 
     @Configuration
@@ -47,13 +43,13 @@ public class App {
     }
 
     @SuppressWarnings("MVCPathVariableInspection")
-    @RequestMapping(value = "/**/{path:[^.]*}")
+    @GetMapping(value = "/**/{path:[^.]*}")
     public String redirect() {
         return "forward:/";
     }
 
     @ResponseBody
-    @RequestMapping("/user")
+    @GetMapping("/user")
     public Principal user(Principal user) {
         return user;
     }
