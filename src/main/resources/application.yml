@@ -1,0 +1,9 @@
+spring:
+  security:
+    user:
+      password: password
+zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: http://localhost:8081

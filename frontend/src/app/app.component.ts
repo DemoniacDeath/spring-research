@@ -4,18 +4,18 @@ import {AppService} from "./app.service";
 import {Router} from "@angular/router";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    constructor(private app: AppService, private http: HttpClient, private router: Router) {
-        this.app.authenticate(undefined, undefined);
-    }
+  constructor(private app: AppService, private http: HttpClient, private router: Router) {
+    this.app.authenticate(undefined, undefined);
+  }
 
-    logout() {
-        this.app.logout(() => {
-            this.router.navigateByUrl("/login");
-        });
-    }
+  logout() {
+    this.app.logout(() => {
+      this.router.navigateByUrl("/login");
+    });
+  }
 }

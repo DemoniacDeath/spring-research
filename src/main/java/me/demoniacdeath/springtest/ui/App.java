@@ -2,6 +2,7 @@ package me.demoniacdeath.springtest.ui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,6 +21,7 @@ import java.util.Map;
 @SpringBootApplication
 @EnableWebSecurity
 @Controller
+@EnableZuulProxy
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
@@ -54,11 +56,5 @@ public class App {
     @RequestMapping("/user")
     public Principal user(Principal user) {
         return user;
-    }
-
-    @ResponseBody
-    @RequestMapping("/token")
-    public Map<String, String> token(HttpSession session) {
-        return Collections.singletonMap("token", session.getId());
     }
 }
